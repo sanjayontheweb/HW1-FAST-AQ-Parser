@@ -86,8 +86,10 @@ def test_FastqParser():
         assert isinstance(seq[2], str)
         if count == 0:
             assert seq[1] == 'TGTGGTCGTATAGTTATTGTCATAAATTACACAGAATCGCGATTCTCCGCGTCCACCAATCTTAGTGCACCACAGCATCGACCCGATTTATGACGCTGAG'
+            assert seq[2] == "*540($=*,=.062565,2>'487')!:&&6=,6,*7>:&132&83*8(58&59>'8!;28<94,0*;*.94**:9+7\"94(>7='(!5\"2/!%\"4#32="
         if count == 1:
             assert seq[1] == 'CCCCGGACGACTGATCCCGATAGAGCTCACTCTTCGAGGCAAGCAGACCCATATCGTCCTGCTGGCAACGCTATCCGGGTGCGAGTAAATCGAAACCTCG'
+            assert seq[2] == "'(<#/0$5&!$+,:=%7=50--1;'(-7;0>=$(05*9,,:%0!<),%646<8#%\".\"-'*-0:.+*&$5!'8)(%3*+9/&/%=363*,6$20($97,\""
         count += 1
         #idk how to test qualitystring because it has "" in it
         print(seq[2])
@@ -97,7 +99,7 @@ def test_FastqFormat():
     Test to make sure fastq file is being read in. If this is a fasta file, the
     first line is None
     """
-    good_fasta = FastaParser('data/test.fq')
+    good_fasta = FastqParser('data/test.fa')
 
     next_seq = next(iter(good_fasta))
     assert next_seq[0] is None
